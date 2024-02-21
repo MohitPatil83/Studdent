@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block 'main' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+    <div class="col-sm-12 offset">
+
+    <h4 class="text-center alert alert-info">Show Student Information</Details></h2>
+    
+        <p>
+        <a class="btn btn-primary" href="/addandshow" target="_blank" role="button">Add student</a>
+        </p>
+        
+        
+        
+        {% if user.is_authenticated %}
+        <table class="table table-danger">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">First_name</th>
+                <th scope="col">Last_name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Course</th>
+                <th scope="col">Date_of_birth</th>
+                <th scope="col">gender</th>
+                <th scope="col">Phone_Number</th>
+                <th scope="col">Class_grade</th>
+                <th scope="col">Actions</th>
+
+              </tr>
+            
+             {% for student in data %}
+             <tr>
+                <th scope="row">{{student.id}}</th>
+                <td scope="row">{{student.first_name}}</td>
+                <td scope="row">{{student.last_name}}</td>
+                <td scope="row">{{student.email}}</td>
+                <td scope="row">{{student.course}}</td>
+                <td scope="row">{{student.date_of_birth}}</td>
+                <td scope="row">{{student.gender}}</td>
+                  <td scope="row">{{student.contact_number}}</td>
+                    <td>{{student.class_grade}}</td>
+
+                <td><a href="/edit/{{student.id}}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/delete/{{student.id}}" class="btn btn-danger btn-sm">Delete</a></td>
+             </tr>
+             {% endfor %}
+            </tbody>
+          </table>  
+        
+    {% endif %}
+
+</div>
+</div>
+    <script src="{% static 'assets/js/jquery.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock 'main' %}

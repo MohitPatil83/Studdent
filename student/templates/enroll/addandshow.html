@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.css' %}">
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center alert alert-info">Add New Student</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+
+                <table align="center">
+                    <tr>
+                        <td><label for="input1">First Name:</label></td>
+                        <td><input type="text" name="first_name" id="input1" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="input2">Last Name:</label></td>
+                        <td><input type="text" name="last_name" id="input2" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="input3">Email:</label></td>
+                        <td><input type="email" name="email" id="input3" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="course">Course:</label></td>
+                        <td>
+                            <select name="course" id="course" required>
+                                <option value="math">Math</option>
+                                <option value="science">Science</option>
+                                <option value="history">History</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="input5">Date of Birth:</label></td>
+                        <td><input type="date" name="date_of_birth" id="input5" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>Gender:</label></td>
+                        <td>
+                            <input type="radio" name="gender" value="male" id="male" required>
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" value="female" id="female" required>
+                            <label for="female">Female</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="input7">Phone Number:</label></td>
+                        <td><input type="tel" name="phone_number" id="input7" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="input8">Class Grade:</label></td>
+                        <td><input type="text" name="class_grade" id="input8" required></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="subbtn" value="Add"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+</form>
+<script src="{% static 'assets/js/jquery.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+{% endblock 'main' %}
